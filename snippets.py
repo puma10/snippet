@@ -1,8 +1,9 @@
+import sys
+import argparse
 import logging
 import csv
-import argparse
-import sys
 
+# Set the log output file, and the log level
 logging.basicConfig(filename="output.log", level=logging.DEBUG)
 
 def put(name, snippet, filename):
@@ -24,12 +25,11 @@ def make_parser():
 
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
-     # Subparser for the put command
+    # Subparser for the put command
     logging.debug("Constructing put subparser")
     put_parser = subparsers.add_parser("put", help="Store a snippet")
     put_parser.add_argument("name", help="The name of the snippet")
     put_parser.add_argument("snippet", help="The snippet text")
-    # The nargs="?" option says that we can leave out the argument if we just want to use the default value
     put_parser.add_argument("filename", default="snippets.csv", nargs="?",
                             help="The snippet filename")
 
@@ -40,7 +40,6 @@ def main():
     logging.info("Starting snippets")
     parser = make_parser()
     arguments = parser.parse_args(sys.argv[1:])
-
     # Convert parsed arguments from Namespace to dictionary
     arguments = vars(arguments)
     command = arguments.pop("command")
@@ -51,5 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
