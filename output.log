@@ -7,3 +7,10 @@ INFO:root:Constructing parser
 INFO:root:Starting snippets
 INFO:root:Constructing parser
 DEBUG:root:Constructing put subparser
+INFO:root:Starting snippets
+INFO:root:Constructing parser
+DEBUG:root:Constructing put subparser
+INFO:root:Writing josh:here to snippets.csv
+DEBUG:root:Opening file
+DEBUG:root:Writing snippet to file
+DEBUG:root:Write sucessful
